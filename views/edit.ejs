@@ -1,0 +1,20 @@
+<%- include('./partials/header') %>
+<!--  -->
+<%- include('./partials/nav') %>
+
+<form action="/update/<%= currentuser._id %>" method="post">
+
+
+    <input type="text" placeholder="Enter Name" name="name" value="<%= currentuser.username %>"> <br>
+    <input type="text" placeholder="Enter Number" name="contact" value=" <%= currentuser.contact %>"> <br>
+    <input type="text" placeholder="Enter Email" name="email" value="<%= currentuser.email %>"> <br>
+    <input type="text" placeholder="Enter Address" name="address" value="<%= currentuser.address %>" > <br>
+
+    <button>update Contact</button>
+
+</form>
+
+
+<!--  -->
+<%- include('./partials/footer') %>
+  

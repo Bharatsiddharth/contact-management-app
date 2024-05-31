@@ -3,23 +3,26 @@
 <%- include('./partials/nav') %>
 
 
-<div class="d-flex gap-5 mt-5">
+<div class="d-flex gap-5 mt-5 ">
     
  <% allUser.forEach(function(user) { %>
 
 
-    <div class="card" style="width: 18rem;">
+      <div class="card mb-3" style="max-width: 18rem;">
         <div class="card-body">
           <h5 class="card-title"><%= user.username %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= user.contact %></h6>
           <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
-          <p class="card-text">
-            <%= user.address %>
-          </p>
-          <a href="/delete/<%= user.id %>" class="card-link">delete</a>
-          <a href="/edit/<%= user.id %>" class="card-link">update</a>
+          <p class="card-text"><%= user.address %></p>
+          <div class="d-flex justify-content-end">
+            <a href="/delete/<%= user.id %>" class="btn btn-danger me-2">Delete</a>
+            <a href="/edit/<%= user.id %>" class="btn btn-primary">Update</a>
+          </div>
         </div>
       </div>
+
+
+      
 
  <% }) %>
 

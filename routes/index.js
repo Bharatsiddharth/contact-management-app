@@ -1,23 +1,37 @@
 var express = require('express');
 var router = express.Router();
 
-var userModel = require('../connect/user');
+var userModel = require('../connect/Contactuser');
+
+// var User = require("../connect/userRegister")
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   
-  res.render('index', );
+  res.render('index');
 });
 
 router.get('/register',function(req, res, next) {
   res.render('register');
 });
 
+
+router.get('/register-user',function(req, res, next) {
+  res.render('registerUser');
+});
+
+// router.post('/register-user', async function(req, res, next) {
+//   const {name,username1, email1, password } = req.body;
+//   await User.register({name, username, email}, password);
+
+//   res.send("user registered")
+// });
+
 router.post('/register', async function(req, res, next) {
   const user = await userModel.create({
-    username:req.body.username,
+    contactname:req.body.contactusername,
     contact:req.body.contact,
-    email:req.body.email,
+    contactemail:req.body.contactemail,
     address:req.body.address,
   })
   res.redirect('/contact')
